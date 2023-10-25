@@ -1,28 +1,22 @@
+//instanciando variaveis que geram numeros aleatorios
+var randomNumber1 = Math.floor(Math.random() * 6) + 1;
+var randomNumber2 = Math.floor(Math.random() * 6) + 1;
 
-var randomNumer1 = Math.floor(Math.random() * 6) + 1;
+//instanciando variaveis que vira a imagem do dado com o numero que foi gerado anteriormente
+var randomImageSource1 = "images/dice" + randomNumber1 + ".png";
+var randomImageSource2 = "images/dice" + randomNumber2 + ".png";
 
-var randomImage1 = "images/dice" + randomNumer1 + ".png";
+// alterando o src no documento html com as variaveis geradas acima
+document.querySelectorAll("img")[0].setAttribute("src", randomImageSource1);
+document.querySelectorAll("img")[1].setAttribute("src", randomImageSource2);
 
-var image1 = document.querySelectorAll("img")[0];
-
-image1.setAttribute("src", randomImage1);
-
-// metodos diferentes
-
-var randomNumer2 = Math.floor(Math.random() * 6) + 1;
-
-var randomImage2 = "images/dice" + randomNumer2 + ".png";
-
-document.querySelectorAll("img")[1].setAttribute("src", randomImage2)
-
-if (randomNumer1 > randomNumer2) {
-  document.querySelector("h1").innerHTML = "Player 1 wins!";
+// condição para imprimir o resultado no texto dependendo dos dados
+if(randomNumber1 > randomNumber2) { 
+    document.querySelector("h1").innerHTML = "Player 1 Wins!";
 }
-
-else if (randomNumer1 < randomNumer2) {
-  document.querySelector("h1").innerHTML = "Player 2 wins!";
+else if(randomNumber2 > randomNumber1) {
+    document.querySelector("h1").innerHTML = "Player 2 Wins!";
 }
-
 else {
-  document.querySelector("h1").innerHTML = "Draw!";
+    document.querySelector("h1").innerHTML = "Draw!";
 }
